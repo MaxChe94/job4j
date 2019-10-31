@@ -27,7 +27,7 @@ public class MultiMaxTest {
     }
 
     @Test
-    public void whenAllEguals() {
+    public void whenAllEquals() {
         MultiMax check = new MultiMax();
         int result = check.max(8, 8, 8);
         assertThat(result, is(8));
