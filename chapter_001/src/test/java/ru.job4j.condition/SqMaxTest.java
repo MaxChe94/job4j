@@ -39,5 +39,13 @@ public class SqMaxTest {
         int result = check.max(4, 4, 4, 4);
         assertThat(result, is(4));
     }
+
+    @Test
+    public void j4jTest() {               // добавил тест
+        SqMax check = new SqMax();
+        int result = check.max(4, 1, 8, 1);
+        assertThat(result, is(8));
+    }
+
 }
 
