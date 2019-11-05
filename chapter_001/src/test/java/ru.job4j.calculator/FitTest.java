@@ -1,6 +1,6 @@
 package ru.job4j.calculator;
 
-import  org.junit.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class FitTest {
@@ -10,7 +10,7 @@ public class FitTest {
         double in = 185;
         double expected = 97.74;
         double out = Fit.manWeight(in);
-        Assert.assertEquals(expected,out,0.01);
+        Assert.assertEquals(expected, out, 0.01);
     }
 
     @Test

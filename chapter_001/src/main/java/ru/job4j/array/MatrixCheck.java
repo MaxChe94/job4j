@@ -7,19 +7,19 @@ public class MatrixCheck {
             for (int cell = 0; cell < board.length; cell++) {
                 char sign = board[row][cell];
                 System.out.print(sign);
-                if (result == false){
-                     if (cell == 0) {
-                         result = true;
-                         for (int j = 0; j < board.length; j++) {
-                             result &= (board[row][j] == 'X');
-                         }
-                     }
-                     if ((row == 0) & !result) {
-                         result = true;
-                         for (int j = 0; j < board.length; j++) {
-                             result &= (board[j][cell] == 'X');
-                         }
-                     }
+                if (!result) {
+                    if (cell == 0) {
+                        result = true;
+                        for (int j = 0; j < board.length; j++) {
+                            result &= (board[row][j] == 'X');
+                        }
+                    }
+                    if ((row == 0) & !result) {
+                        result = true;
+                        for (int j = 0; j < board.length; j++) {
+                            result &= (board[j][cell] == 'X');
+                        }
+                    }
 
                 }
             }
