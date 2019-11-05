@@ -1,34 +1,41 @@
 package ru.job4j.array;
 
 public class MatrixCheck {
-    public static boolean isWin(char[][] board) {
+    public static boolean isWin (char[][] board) {
         boolean result = false;
         for (int row = 0; row < board.length; row++) {
             for (int cell = 0; cell < board.length; cell++) {
                 char sign = board[row][cell];
                 System.out.print(sign);
-                if (!result) {
-                    if (cell == 0) {
-                        result = true;
-                        for (int j = 0; j < board.length; j++) {
-                            result &= (board[row][j] == 'X');
-                        }
-                    }
-                    if ((row == 0) & !result) {
-                        result = true;
-                        for (int j = 0; j < board.length; j++) {
-                            result &= (board[j][cell] == 'X');
-                        }
-                    }
-
-                }
             }
             System.out.println();
+        }
+        boolean vert = true;
+        boolean hor = true;
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][i] == 'X') {
+                vert = true;
+                hor = true;
+                for (int j = 0; j < board.length; j++) {
+                    if (hor) {
+                        hor &= (board[i][j] == 'X');
+                    }
+                    if (vert) {
+                        vert &= (board[j][i] == 'X');
+                    }
+                    if (!(result = hor | vert)) {
+                        break;
+                    }
+                }
+                if (result) {
+                    break;
+                }
+            }
         }
         return result;
     }
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         char[][] hasWinVertical = {
                 {'_', '_', 'X', '_', '_'},
                 {'_', '_', 'X', '_', '_'},
