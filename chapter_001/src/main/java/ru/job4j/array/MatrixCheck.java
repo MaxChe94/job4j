@@ -12,7 +12,7 @@ public class MatrixCheck {
         }
         boolean vert = true;
         boolean hor = true;
-        for (int i = 0; i < board.length; i++) {
+        for (int i = 0; (i < board.length) & (!result); i++) {
             if (board[i][i] == 'X') {
                 vert = true;
                 hor = true;
@@ -23,13 +23,8 @@ public class MatrixCheck {
                     if (vert) {
                         vert &= (board[j][i] == 'X');
                     }
-                    if (!(result = hor | vert)) {
-                        break;
-                    }
                 }
-                if (result) {
-                    break;
-                }
+                result = hor | vert;
             }
         }
         return result;
