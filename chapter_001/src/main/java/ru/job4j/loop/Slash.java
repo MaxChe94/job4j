@@ -1,6 +1,12 @@
 package ru.job4j.loop;
 
 public class Slash {
+    /**
+     * Метод Draw выводит на консоль изображение креста ("Х").
+     * left = (row == cell) условие, по которому определяется, ставить ли символ или нет.
+     * right = (cell == (size - 1 - row)) условие, что нужно ставить элемент в правый угол.
+     * @param size размер креста
+     */
     public static void draw(int size) {
         for (int row = 0; row < size; row++) {
             for (int cell = 0; cell < size; cell++) {
