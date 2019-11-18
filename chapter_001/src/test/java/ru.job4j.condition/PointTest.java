@@ -7,11 +7,20 @@ public class PointTest {
 
     @Test
     public void distance() {
-        int[] in = {0, 0, 2, 0};
         double expected = 2.0;
         Point a = new Point(0, 0);
         Point b = new Point(2, 0);
         double out = a.distance(b);
+        Assert.assertEquals(expected, out, 0.01);
+
+    }
+
+    @Test
+    public void distance3d() {
+        double expected = 5.0;
+        Point a = new Point(0, 0,0);
+        Point b = new Point(3, 0, 4);
+        double out = a.distance3d(b);
         Assert.assertEquals(expected, out, 0.01);
 
     }
