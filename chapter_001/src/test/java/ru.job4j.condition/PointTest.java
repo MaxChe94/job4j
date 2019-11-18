@@ -9,7 +9,9 @@ public class PointTest {
     public void distance() {
         int[] in = {0, 0, 2, 0};
         double expected = 2.0;
-        double out = Point.distance(in[0], in[1], in[2], in[3]);
+        Point a = new Point(0, 0);
+        Point b = new Point(2, 0);
+        double out = a.distance(b);
         Assert.assertEquals(expected, out, 0.01);
 
     }
