@@ -1,13 +1,13 @@
 package ru.job4j.tracker;
 
 public class Item {
-
-    public Item(){
-        super();
-        System.out.println("Load item");
+    public Item() {
     }
-    public static void main (String[] args) {
-        //Item item = new Item();
-        Bug bug = new Bug();
+
+    public Item(String name) {
+    }
+
+    public static void main(String[] args) {
+        Item item = new Item();
     }
 }
