@@ -1,6 +1,11 @@
 package ru.job4j.oop;
 
 public class Animal {
+    public Animal(){
+        super();
+        System.out.println("This is class Animal");
+    }
+
     public Animal(String name){
         super();
         System.out.println("This is class Animal");
