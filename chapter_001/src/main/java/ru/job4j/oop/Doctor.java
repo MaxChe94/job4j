@@ -4,7 +4,8 @@ public class Doctor extends Profession {
     String experience;
     String category;
 
-    public Profession.Diagnos heal (Patient patient) {
+    public Diagnos heal (Patient patient) {
+        return new Diagnos();
 
     }
 
