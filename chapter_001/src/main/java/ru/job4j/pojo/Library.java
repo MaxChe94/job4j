@@ -31,7 +31,7 @@ public class Library {
         System.out.println("Is Clean code?");
         for (int index = 0; index < booksArr.length; index++) {
             Book i = booksArr[index];
-            if (i.equals(b1))
+            if ((i.getName()).equals(b1.getName()))
                 System.out.println(" book name is " + i.getName() + "; count pages " + i.getPageCount());
         }
     }
