@@ -1,9 +1,9 @@
 package ru.job4j;
 
 import org.junit.Test;
+import org.junit.Assert;
 import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
-import org.junit.Assert;
 
 
 public class TrackerTest {
