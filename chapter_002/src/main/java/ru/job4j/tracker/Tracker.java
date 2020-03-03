@@ -16,9 +16,10 @@ public class Tracker {
 
     /**
      * Метод добавления заявки в хранилище
+     *
      * @param item новая заявка
      */
-    public Item add(Item item) {
+    public Item add (Item item) {
         item.setId(this.generateId());
         items[this.position++] = item;
         return item;
@@ -27,55 +28,52 @@ public class Tracker {
     /**
      * Метод генерирует уникальный ключ для заявки.
      * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
+     *
      * @return Уникальный ключ.
      */
-    private String generateId() {
+    private String generateId () {
         Random rm = new Random();
         return String.valueOf(rm.nextLong() + System.currentTimeMillis());
     }
 
     /**
      * Метод поиска не пустых заявок
+     *
      * @return массив заявок, не равных null
      */
-    public Item[] findAll(){
-        Item[] currentItems = Arrays.copyOf(this.items,this.position);
-        int size = 0;
-        for (int i = 0; i < currentItems.length; i++){
-            if (!currentItems[i].equals(null)) {
-                currentItems[size] = currentItems[i];
-                size++;
-            }
-        }
-        return Arrays.copyOf(currentItems,size);
+    public Item[] findAll () {
+        return Arrays.copyOf(this.items, this.position);
     }
 
     /**
      * Метод поиска заявок по имени
+     *
      * @return массив заявок с заданным именем
      */
-    public Item[] findByName(String key){
-        Item[] eqNameItems = Arrays.copyOf(this.items,this.position);
+    public Item[] findByName (String key) {
+        Item[] eqNameItems = new Item[position];
         int size = 0;
-        for (int i = 0; i < eqNameItems.length; i++){
-            if (eqNameItems[i].getName().equals(key)) {
-                eqNameItems[size] = eqNameItems[i];
+        for (int i = 0; i < eqNameItems.length; i++) {
+            if ((items[i].getName()).equals(key)) {
+                eqNameItems[size] = items[i];
                 size++;
             }
         }
-        return Arrays.copyOf(eqNameItems,size);
+        return Arrays.copyOf(eqNameItems, size);
     }
 
     /**
      * Метод поиска заявки по ее ключу
+     *
      * @return заявка, если не найдена - null.
      */
-    public Item findById(String id){
+    public Item findById (String id) {
         Item result = null;
-        Item[] arr = Arrays.copyOf(this.items,this.position);
-        for (Item i : arr) {
-            if (i.getId().equals(id)){
-                result = i;
+        //Item[] arr = Arrays.copyOf(this.items,this.position);
+        for (int i = 0; i < this.position; i++) {
+            if (this.items[i].getId() == (id)) {
+                result = this.items[i];
+                //break;
             }
         }
         return result;

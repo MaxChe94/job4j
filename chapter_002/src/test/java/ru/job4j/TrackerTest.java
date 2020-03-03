@@ -19,36 +19,38 @@ public class TrackerTest {
     @Test
     public void findByNameTest () {
         Tracker tracker = new Tracker();
-        String[] names = {"first", "second", "first", "third"};
-        String[] n1 = {"first", "first"};
-        for (String i :
-                names) {
-            tracker.add(new Item(i));
-        }
-        Item[] itms = tracker.findByName("first");
-        String[] result = new String[itms.length];
-        for (int j = 0; j < itms.length; j++) {
-            if (itms[j].getName().equals("first")) {
-                result[j] = itms[j].getName();
-            }
-        }
-        Assert.assertEquals(result, n1);
+        Item[] n = new Item[4];
+        n[0] = tracker.add(new Item("first"));
+        n[1] = tracker.add(new Item("second"));
+        n[2] = tracker.add(new Item("first"));
+        n[3] = tracker.add(new Item("third"));
+        Item[] n1 = {n[0], n[2]};
+        Item[] result = tracker.findByName("first");
+        Assert.assertEquals(n1, result);
     }
 
     @Test
     public void findAllTest () {
         Tracker tracker = new Tracker();
-        String[] names = {"first", "second", "first", "third"};
-        for (String i :
-                names) {
-            tracker.add(new Item(i));
-        }
-        Item[] itms = tracker.findAll();
-        String[] result = new String[itms.length];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = itms[i].getName();
-        }
-        Assert.assertEquals(result, names);
+        Item[] n = new Item[4];
+        n[0] = tracker.add(new Item("first"));
+        n[1] = tracker.add(new Item("second"));
+        n[2] = tracker.add(new Item("third"));
+        n[3] = tracker.add(new Item("four"));
+        Item[] result = tracker.findAll();
+        Assert.assertEquals(n, result);
+    }
+
+    @Test
+    public void findByIdTest () {
+        Tracker tracker = new Tracker();
+        Item[] n = new Item[4];
+        n[0] = tracker.add(new Item("first"));
+        n[1] = tracker.add(new Item("second"));
+        n[2] = tracker.add(new Item("third"));
+        n[3] = tracker.add(new Item("four"));
+        Item result = tracker.findById(n[2].getId());
+        Assert.assertEquals(n[2], result);
     }
 
 }
