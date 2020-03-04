@@ -71,9 +71,9 @@ public class Tracker {
         Item result = null;
         //Item[] arr = Arrays.copyOf(this.items,this.position);
         for (int i = 0; i < this.position; i++) {
-            if (this.items[i].getId() == (id)) {
+            if (this.items[i].getId().equals(id)) {
                 result = this.items[i];
-                //break;
+                break;
             }
         }
         return result;
