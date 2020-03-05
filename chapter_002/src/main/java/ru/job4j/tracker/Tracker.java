@@ -63,19 +63,68 @@ public class Tracker {
     }
 
     /**
+     * Метод замены заявки по ее ключу
+     *
+     * @return новая заявка, если не найдена - null.
+     */
+    public Item replace (String id, Item newItem) {
+        Item result = null;
+        int index = -1;
+        for (int i = 0; i < this.position; i++) {
+            if (this.items[i].getId().equals(id)) {
+                index = i;
+                break;
+            }
+        }
+        if (index != (-1)) {
+            newItem.setId(this.generateId());
+            this.items[index] = newItem;
+            result = this.items[index];
+        }
+        return result;
+    }
+
+
+    /**
      * Метод поиска заявки по ее ключу
      *
      * @return заявка, если не найдена - null.
      */
     public Item findById (String id) {
         Item result = null;
-        //Item[] arr = Arrays.copyOf(this.items,this.position);
         for (int i = 0; i < this.position; i++) {
             if (this.items[i].getId().equals(id)) {
                 result = this.items[i];
                 break;
             }
+
         }
         return result;
     }
+
+    /**
+     * Метод удаления заявки по ее ключу
+     *
+     * @return удалённая заявка, если не найдена - null.
+     */
+    public Item delete (String id) {
+        Item result = null;
+        int index = -1;
+        for (int i = 0; i < this.position; i++) {
+            if (this.items[i].getId().equals(id)) {
+                index = i;
+                break;
+            }
+        }
+        if (index != (-1)) {
+            result = this.items[index];
+            for (int i = index; i < (position - 1); i++) {
+                items[i] = items[i + 1];
+            }
+            items[position - 1] = null;
+            position -= 1;
+        }
+        return result;
+    }
+
 }
