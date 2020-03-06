@@ -67,8 +67,8 @@ public class Tracker {
      *
      * @return новая заявка, если не найдена - null.
      */
-    public Item replace (String id, Item newItem) {
-        Item result = null;
+    public boolean replace (String id, Item newItem) {
+        boolean result = false;
         int index = -1;
         for (int i = 0; i < this.position; i++) {
             if (this.items[i].getId().equals(id)) {
@@ -79,7 +79,7 @@ public class Tracker {
         if (index != (-1)) {
             newItem.setId(this.generateId());
             this.items[index] = newItem;
-            result = this.items[index];
+            result = true;
         }
         return result;
     }
@@ -107,8 +107,8 @@ public class Tracker {
      *
      * @return удалённая заявка, если не найдена - null.
      */
-    public Item delete (String id) {
-        Item result = null;
+    public boolean delete (String id) {
+        boolean result = false;
         int index = -1;
         for (int i = 0; i < this.position; i++) {
             if (this.items[i].getId().equals(id)) {
@@ -117,12 +117,12 @@ public class Tracker {
             }
         }
         if (index != (-1)) {
-            result = this.items[index];
             for (int i = index; i < (position - 1); i++) {
                 items[i] = items[i + 1];
             }
             items[position - 1] = null;
             position -= 1;
+            result = true;
         }
         return result;
     }

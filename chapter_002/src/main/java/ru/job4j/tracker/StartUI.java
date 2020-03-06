@@ -35,27 +35,19 @@ public class StartUI {
                 System.out.println("=== Edit Item ====");
                 System.out.println("Print ID Item to Edit");
                 String id = scanner.nextLine();
-                if (tracker.findById(id) == null) {
-                    System.out.println("Error! Item not found!");
-                } else {
                     System.out.println("Print a new Name");
                     Item newItem = new Item(scanner.nextLine());
-                    newItem = tracker.replace(id, newItem);
-                    if (newItem != null) {
-                        System.out.println("Successfully! New Item is " + '"' +
-                                newItem.getName() + ", ID = " + newItem.getId() + '"');
+                    if (tracker.replace(id, newItem)) {
+                        System.out.println("Successfully!");
                     } else {
                         System.out.println("Error!");
                     }
-                }
             } else if (select == 3) {
                 System.out.println("=== Delete Item ====");
                 System.out.println("Print ID Item to Delete");
                 String id = scanner.nextLine();
-                Item item = tracker.delete(id);
-                if (item != null) {
-                    System.out.println("Successfully! Item " + '"' + item.getName() +
-                            ", ID = " + item.getId() + '"' + " was Delete!");
+                if (tracker.delete(id)) {
+                    System.out.println("Successfully!");
                 } else {
                     System.out.println("Error!");
                 }
