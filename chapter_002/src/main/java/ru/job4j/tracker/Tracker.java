@@ -77,7 +77,7 @@ public class Tracker {
             }
         }
         if (index != (-1)) {
-            newItem.setId(this.generateId());
+            newItem.setId(id);
             this.items[index] = newItem;
             result = true;
         }
