@@ -1,17 +1,20 @@
 package ru.job4j.tracker;
 
-import java.util.Scanner;
-
 public class StubInput implements Input {
-    private Scanner scanner = new Scanner(System.in);
+    private String[] answers;
+    private int position = 0;
 
-    public String askStr (String question) {
-        System.out.println(question);
-        return scanner.nextLine();
+    public StubInput(String[] answers) {
+        this.answers = answers;
     }
 
-    public int askInt (String question) {
-        System.out.println(question);
-        return Integer.valueOf(scanner.nextLine());
+    @Override
+    public String askStr(String question) {
+        return answers[position++];
+    }
+
+    @Override
+    public int askInt(String question) {
+        return Integer.valueOf(askStr(question));
     }
 }
