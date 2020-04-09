@@ -1,22 +1,20 @@
 package ru.job4j.tracker;
 
 public class StartUI {
-    public static void createItem (Tracker tracker, Input input) {
+    public static void createItem(Tracker tracker, Input input) {
         System.out.println("=== Create a new Item ====");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         tracker.add(item);
     }
 
-    public static void printItems (Tracker tracker, Input input) {
+    public static void printItems(Tracker tracker, Input input) {
         System.out.println("=== Current Items ====");
         int i = 0;
         Item[] items = tracker.findAll();
         if (items.length > 0) {
-            for (Item item :
-                    tracker.findAll()) {
-                System.out.println(i + 1 + ". " + item.getName() +
-                        ", ID = " + item.getId());
+            for (Item item : tracker.findAll()) {
+                System.out.println(i + 1 + ". " + item.getName() + ", ID = " + item.getId());
                 i++;
             }
         } else {
@@ -24,7 +22,7 @@ public class StartUI {
         }
     }
 
-    public static void editItem (Tracker tracker, Input input) {
+    public static void editItem(Tracker tracker, Input input) {
         System.out.println("=== Edit Item ====");
         String id = input.askStr("Print ID Item to Edit");
         Item newItem = new Item(input.askStr("Print a new Name"));
@@ -35,7 +33,7 @@ public class StartUI {
         }
     }
 
-    public static void deleteItem (Tracker tracker, Input input) {
+    public static void deleteItem(Tracker tracker, Input input) {
         System.out.println("=== Delete Item ====");
         String id = input.askStr("Print ID Item to Delete");
         if (tracker.delete(id)) {
@@ -45,15 +43,13 @@ public class StartUI {
         }
     }
 
-    public static void findItemsByName (Tracker tracker, Input input) {
+    public static void findItemsByName(Tracker tracker, Input input) {
         System.out.println("=== Find items by name ====");
         int i = 0;
         Item[] items = tracker.findByName(input.askStr("Print name"));
         if (items.length > 0) {
-            for (Item item :
-                    items) {
-                System.out.println(i + 1 + ". " + item.getName() +
-                        ", ID = " + item.getId());
+            for (Item item : items) {
+                System.out.println(i + 1 + ". " + item.getName() + ", ID = " + item.getId());
                 i++;
             }
         } else {
@@ -61,7 +57,7 @@ public class StartUI {
         }
     }
 
-    public static void findItemById (Tracker tracker, Input input) {
+    public static void findItemById(Tracker tracker, Input input) {
         System.out.println("=== Find Item by Id ====");
         String id = input.askStr("Print ID Item");
         Item item = tracker.findById(id);
@@ -72,7 +68,7 @@ public class StartUI {
         }
     }
 
-    public void init (Input input, Tracker tracker) {
+    public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             this.showMenu();
@@ -95,7 +91,7 @@ public class StartUI {
         }
     }
 
-    private void showMenu () {
+    private void showMenu() {
         System.out.println("Menu.");
         System.out.println("0. Add new Item");
         System.out.println("1. Show all items");
@@ -107,7 +103,7 @@ public class StartUI {
     }
 
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         new StartUI().init(input, tracker);

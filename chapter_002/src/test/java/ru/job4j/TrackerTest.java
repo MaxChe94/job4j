@@ -8,7 +8,7 @@ import ru.job4j.tracker.Tracker;
 
 public class TrackerTest {
     @Test
-    public void whenAddNewItemThenTrackerHasSameItem () {
+    public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
         Item item = new Item("test1");
         tracker.add(item);
@@ -17,7 +17,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void findByNameTest () {
+    public void findByNameTest() {
         Tracker tracker = new Tracker();
         Item[] n = new Item[4];
         n[0] = tracker.add(new Item("first"));
@@ -30,7 +30,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void findAllTest () {
+    public void findAllTest() {
         Tracker tracker = new Tracker();
         Item[] n = new Item[4];
         n[0] = tracker.add(new Item("first"));
@@ -42,7 +42,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void findByIdTest () {
+    public void findByIdTest() {
         Tracker tracker = new Tracker();
         Item[] n = new Item[4];
         n[0] = tracker.add(new Item("first"));

@@ -19,7 +19,7 @@ public class Tracker {
      *
      * @param item новая заявка
      */
-    public Item add (Item item) {
+    public Item add(Item item) {
         item.setId(this.generateId());
         items[this.position++] = item;
         return item;
@@ -31,7 +31,7 @@ public class Tracker {
      *
      * @return Уникальный ключ.
      */
-    private String generateId () {
+    private String generateId() {
         Random rm = new Random();
         return String.valueOf(rm.nextLong() + System.currentTimeMillis());
     }
@@ -41,7 +41,7 @@ public class Tracker {
      *
      * @return массив заявок, не равных null
      */
-    public Item[] findAll () {
+    public Item[] findAll() {
         return Arrays.copyOf(this.items, this.position);
     }
 
@@ -50,7 +50,7 @@ public class Tracker {
      *
      * @return массив заявок с заданным именем
      */
-    public Item[] findByName (String key) {
+    public Item[] findByName(String key) {
         Item[] eqNameItems = new Item[position];
         int size = 0;
         for (int i = 0; i < eqNameItems.length; i++) {
@@ -67,7 +67,7 @@ public class Tracker {
      *
      * @return новая заявка, если не найдена - null.
      */
-    public boolean replace (String id, Item newItem) {
+    public boolean replace(String id, Item newItem) {
         boolean result = false;
         int index = -1;
         for (int i = 0; i < this.position; i++) {
@@ -90,7 +90,7 @@ public class Tracker {
      *
      * @return заявка, если не найдена - null.
      */
-    public Item findById (String id) {
+    public Item findById(String id) {
         Item result = null;
         for (int i = 0; i < this.position; i++) {
             if (this.items[i].getId().equals(id)) {
@@ -107,7 +107,7 @@ public class Tracker {
      *
      * @return удалённая заявка, если не найдена - null.
      */
-    public boolean delete (String id) {
+    public boolean delete(String id) {
         boolean result = false;
         int index = -1;
         for (int i = 0; i < this.position; i++) {
