@@ -12,7 +12,7 @@ public class PrintAction implements UserAction {
         Item[] items = tracker.findAll();
         if (items.length > 0) {
             for (Item item : tracker.findAll()) {
-                System.out.println(i + 1 + ". " + item.getName() + ", ID = " + item.getId());
+                System.out.println(item.getName() + ", ID = " + item.getId());
                 i++;
             }
         } else {
